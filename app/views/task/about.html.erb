@@ -1,0 +1,16 @@
+<div class="container mt-2  justify-self-center text-center">
+    <div class=" d-flex flex-column ">
+      <h1>result page</h1>
+      <p>Searh results for '<%= @val %>'</p>
+      <h5>Name: <%= @name %></h5>
+      <h6>List of repos:</h6>
+      <ol class="list-group list-group-numbered">
+
+      <% @repos.each do |repo| %>
+
+          <li class="list-group-item"><%= repo %></li>
+
+      <% end %>
+      </ol>
+  </div>
+</div>
