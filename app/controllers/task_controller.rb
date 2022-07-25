@@ -8,7 +8,7 @@ class TaskController < ApplicationController
 
   def about
     @val = params['myform']['comments']
-    @token = "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"
+    @token = "GITHUB_TOKEN"
 
     @str = "query { user( login: "+'"'+@val+'"'+") { name repositories(first: 100) {nodes {name} } } }"
     @uri = URI("https://api.github.com/graphql")

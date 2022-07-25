@@ -1,24 +1,15 @@
-# README
+# Test task for Cybercraft
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## Description
+### This is a test task for Cybercraft.
+### You can access this page via https://test-task-cybercraft.herokuapp.com/
 
-* System dependencies
+### This is how Search page looks like
+![image](https://user-images.githubusercontent.com/40731578/180884094-4af426e5-61c2-4b9b-97f7-4719474d0317.png)
 
-* Configuration
+### This is how result page looks like
+![image](https://user-images.githubusercontent.com/40731578/180884001-8b6f37ac-730b-43e5-b896-662c63b2661b.png)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### In the localhost we use 'sqlite3' database, othervise on heroku 'Postgres' is used.
