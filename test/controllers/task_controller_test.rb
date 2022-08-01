@@ -1,23 +1,19 @@
-require "test_helper"
+require 'rubygems'
+require 'test/unit'
+require 'vcr'
 
-class TaskControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get task_index_url
-    assert_response :success
-  end
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock
 end
 
-Rspec.describe 'Api requests' do
-  describe "GET /" do
-    it 'returns name of the github user' do
-      get "/"
-
-      expect(response).to be_ok
-      expect(response.body) to include(
-        <<-STRING
-        Daniel
-        STRING
-      )
+class TaskControllerTest < Test::Unit::TestCase
+  def test
+    get '/'
+    VCR.use_cassette('synopsis') do
+      response = Net::HTTP.get_response(URI('https://api.github.com/users/dbb'))
+      resUsername = response['data']['user']['name']
+      assert_match '/', resUsername
     end
   end
 end

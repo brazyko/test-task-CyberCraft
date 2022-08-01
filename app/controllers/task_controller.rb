@@ -7,9 +7,8 @@ class TaskController < ApplicationController
   end
 
   def about
-    @val = params['myform']['comments']
-    @token = "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"
-
+    @val = params['forminpt']['comments']
+    @token = ENV["API_GIT_KEY"]
     @str = "query { user( login: "+'"'+@val+'"'+") { name repositories(first: 100) {nodes {name} } } }"
     @uri = URI("https://api.github.com/graphql")
     @res = Net::HTTP.start(@uri.host, @uri.port, use_ssl: true) do |http|
@@ -27,3 +26,4 @@ class TaskController < ApplicationController
     end
   end
 end
+
